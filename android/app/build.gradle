@@ -1,0 +1,71 @@
+plugins {
+    id "com.android.application"
+    id "kotlin-android"
+    id "dev.flutter.flutter-gradle-plugin"
+    id "com.google.gms.google-services" // Enables Firebase integration
+}
+
+android {
+    namespace = "com.example.fyp" // Updated to match the new package name
+    compileSdk = flutter.compileSdkVersion
+    ndkVersion = flutter.ndkVersion
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+        coreLibraryDesugaringEnabled true
+    }
+
+    kotlinOptions {
+        jvmTarget = "1.8"
+    }
+
+    defaultConfig {
+        applicationId = "com.example.fyp" // Updated package name
+        minSdkVersion 24 // Ensure compatibility with Firebase and other dependencies
+        targetSdkVersion flutter.targetSdkVersion
+        versionCode flutter.versionCode
+        versionName flutter.versionName
+
+        // Enable MultiDex for handling large dependencies
+        multiDexEnabled true
+    }
+
+    buildTypes {
+        release {
+            // Code shrinking and optimization for release builds
+            minifyEnabled true
+            shrinkResources true
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+
+            // Use release keys for production
+            signingConfig signingConfigs.debug
+        }
+
+        debug {
+            // Disable shrinking for debug builds
+            shrinkResources false
+            minifyEnabled false
+        }
+    }
+
+    // Resolve potential conflicts with shared libraries
+    packagingOptions {
+        pickFirst "lib/x86/libc++_shared.so"
+        pickFirst "lib/x86_64/libc++_shared.so"
+        pickFirst "lib/arm64-v8a/libc++_shared.so"
+        pickFirst "lib/armeabi-v7a/libc++_shared.so"
+    }
+}
+
+flutter {
+    source = "../.."
+}
+
+// Apply the Google Services plugin for Firebase integration
+apply plugin: 'com.google.gms.google-services'
+
+dependencies {
+    // ...existing dependencies...
+    coreLibraryDesugaring 'com.android.tools:desugar_jdk_libs:2.1.5'
+}
