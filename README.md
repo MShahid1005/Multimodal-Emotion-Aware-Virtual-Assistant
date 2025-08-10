@@ -1,16 +1,29 @@
-# fyp
+# Multimodal Emotion Aware Virtual Assistant
 
-A new Flutter project.
+This project is my Final Year Project (FYP) A smart virtual assistant capable of understanding and responding to user emotions using speech, facial expressions, and text sentiment analysis.  
+It is built using Flutter for cross-platform UI, integrated with AI/ML models for emotion detection.
 
-## Getting Started
+---
 
-This project is a starting point for a Flutter application.
+## 🚀 Features
+- **Speech Recognition** – Understands and processes voice commands.
+- **Facial Emotion Detection** – Detects emotions through facial expressions.
+- **Real-time Interaction** – Responds instantly with context-aware behavior.
 
-A few resources to get you started if this is your first Flutter project:
+---
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+## 🛠️ Tech Stack
+- **Frontend:** Flutter (Dart)
+- **Backend/Processing:** Python (for ML models)
+- **ML/AI Models:** Emotion detection (Facial + Speech + Text)
+- **Tools & APIs:** TensorFlow, OpenCV, Speech-to-Text APIs
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+---
+## Install Flutter dependencies:
+flutter pub get
+
+## Run the app
+flutter run
+
+
+
